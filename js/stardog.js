@@ -157,6 +157,7 @@
                 acceptH = options.acceptHeader,
                 isJsonBody = options.isJsonBody,
                 contentType = options.contentType,
+                agent = options.agent,
                 contentEncoding = options.contentEncoding,
                 multipart = options.multipart,
                 headers = {},
@@ -218,6 +219,11 @@
                 "data" : (isJsonBody) ? JSON.stringify(msgBody) : msgBody,
                 "multipart" : multipart || false
             };
+
+            if(agent){
+                reqJSON.agent = agent
+                console.log(reqJSON)
+            }
 
             if (multipart) {
                 // var fs = require("fs");
@@ -438,6 +444,11 @@
         },  reasoning = options.reasoning || this.reasoning;
 
         var queryParams = _.extend({ "query" : options.query }, options.params);
+
+        if(options.agent) {
+            reqOptions.agent = options.agent;
+            console.log('adding agent');
+        }
 
         if (options.baseURI) {
             queryParams.baseURI = options.baseURI;
