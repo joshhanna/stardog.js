@@ -222,7 +222,6 @@
 
             if(agent){
                 reqJSON.agent = agent
-                console.log(reqJSON)
             }
 
             if (multipart) {
@@ -447,7 +446,6 @@
 
         if(options.agent) {
             reqOptions.agent = options.agent;
-            console.log('adding agent');
         }
 
         if (options.baseURI) {
